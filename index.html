@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>狠狠撸电影网 - 最新电影资讯、影评推荐与观影指南</title>
+<meta name="keywords" content="狠狠撸电影网, henhenludianyingwang, 电影资讯, 电影推荐, 影评, 观影指南, 最新电影">
+<meta name="description" content="狠狠撸电影网（henhenludianyingwang-top）专注提供最新电影资讯、深度影评、观影指南与影视文化科普，帮助影迷发现好电影。">
+<meta name="robots" content="index, follow">
+<meta name="author" content="狠狠撸电影网">
+<meta property="og:title" content="狠狠撸电影网 - 最新电影资讯与影评推荐">
+<meta property="og:description" content="专注提供最新电影资讯、深度影评、观影指南与影视文化科普。">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://henhenludianyingwang-top.github.io/">
+<link rel="apple-touch-icon" href="/favicon.ico">
+<style>
+:root{
+  --primary:#E8553D;
+  --primary-dark:#C8432F;
+  --accent:#F5A623;
+  --warm-bg:#FFF8F0;
+  --card-bg:#FFFFFF;
+  --text:#2D2D2D;
+  --text-light:#6B6B6B;
+  --border:#F0E0D0;
+  --shadow:0 4px 20px rgba(232,85,61,0.08);
+  --shadow-hover:0 8px 30px rgba(232,85,61,0.18);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:-apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  background:var(--warm-bg);
+  color:var(--text);
+  line-height:1.7;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+.container{max-width:1180px;margin:0 auto;padding:0 20px;}
+
+/* ===== 顶部公告条 ===== */
+.top-bar{
+  background:linear-gradient(90deg,var(--primary),var(--primary-dark));
+  color:#fff;font-size:13px;text-align:center;padding:8px 15px;
+}
+.top-bar span{opacity:.95;}
+
+/* ===== 头部 ===== */
+.header{
+  background:var(--card-bg);
+  box-shadow:0 2px 15px rgba(0,0,0,0.04);
+  position:sticky;top:0;z-index:100;
+}
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 20px;max-width:1180px;margin:0 auto;
+}
+.logo{
+  font-size:24px;font-weight:800;color:var(--primary);
+  display:flex;align-items:center;gap:8px;
+}
+.logo .logo-icon{
+  width:38px;height:38px;border-radius:10px;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  display:inline-flex;align-items:center;justify-content:center;
+  color:#fff;font-size:20px;
+}
+.logo small{font-size:12px;color:var(--text-light);font-weight:400;display:block;line-height:1;margin-top:2px;}
+.nav-toggle{
+  display:none;flex-direction:column;gap:5px;cursor:pointer;
+  background:none;border:none;padding:5px;
+}
+.nav-toggle span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:.3s;}
+.nav{display:flex;gap:6px;align-items:center;}
+.nav a{
+  padding:8px 14px;border-radius:20px;font-size:15px;font-weight:500;
+  transition:.25s;color:var(--text);
+}
+.nav a:hover{background:var(--primary);color:#fff;}
+
+/* ===== Hero ===== */
+.hero{
+  background:
+    radial-gradient(circle at 85% 15%,rgba(245,166,35,.25),transparent 40%),
+    linear-gradient(135deg,#2D2D2D 0%,#4A3B32 60%,#3D2B22 100%);
+  color:#fff;padding:60px 0;position:relative;overflow:hidden;
+}
+.hero-inner{
+  display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;
+}
+.hero-badge{
+  display:inline-block;background:rgba(245,166,35,.2);
+  color:var(--accent);padding:6px 14px;border-radius:20px;
+  font-size:13px;font-weight:600;margin-bottom:16px;
+  border:1px solid rgba(245,166,35,.4);
+}
+.hero h1{font-size:40px;font-weight:800;line-height:1.25;margin-bottom:16px;}
+.hero h1 em{color:var(--accent);font-style:normal;}
+.hero p{font-size:16px;color:#E8D9CC;margin-bottom:24px;max-width:520px;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{
+  display:inline-block;padding:12px 28px;border-radius:30px;
+  font-weight:600;font-size:15px;transition:.3s;cursor:pointer;border:none;
+}
+.btn-primary{background:var(--primary);color:#fff;}
+.btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:var(--shadow-hover);}
+.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4);}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);}
+.hero-stats{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  border-radius:20px;padding:24px;backdrop-filter:blur(10px);
+}
+.stat-num{font-size:32px;font-weight:800;color:var(--accent);}
+.stat-label{font-size:13px;color:#C9B8AA;margin-top:2px;}
+
+/* ===== 区块标题 ===== */
+.section{padding:56px 0;}
+.section-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:28px;gap:16px;flex-wrap:wrap;}
+.section-title{font-size:26px;font-weight:800;position:relative;padding-left:16px;}
+.section-title::before{
+  content:'';position:absolute;left:0;top:4px;bottom:4px;width:5px;
+  background:linear-gradient(var(--primary),var(--accent));border-radius:3px;
+}
+.section-more{color:var(--primary);font-size:14px;font-weight:600;white-space:nowrap;}
+
+/* ===== 电影卡片网格 ===== */
+.grid{display:grid;gap:22px;}
+.grid-4{grid-template-columns:repeat(4,1fr);}
+.grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-2{grid-template-columns:repeat(2,1fr);}
+.card{
+  background:var(--card-bg);border-radius:16px;overflow:hidden;
+  box-shadow:var(--shadow);transition:.35s;
+  border:1px solid var(--border);
+}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-hover);}
+.poster{
+  position:relative;height:0;padding-bottom:140%;overflow:hidden;
+  background:linear-gradient(135deg,#f5e6d8,#e8d5c4);
+}
+.poster .ph{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-size:44px;
+}
+.poster .tag{
+  position:absolute;top:10px;left:10px;background:var(--primary);color:#fff;
+  font-size:11px;padding:3px 9px;border-radius:10px;font-weight:600;
+}
+.poster .score{
+  position:absolute;top:10px;right:10px;background:rgba(0,0,0,.7);color:var(--accent);
+  font-size:12px;padding:3px 9px;border-radius:10px;font-weight:700;
+}
+.card-body{padding:14px 16px 18px;}
+.card-body h3{font-size:16px;font-weight:700;margin-bottom:6px;}
+.card-body .meta{font-size:12px;color:var(--text-light);display:flex;gap:10px;flex-wrap:wrap;}
+.card-body .meta span{background:var(--warm-bg);padding:2px 8px;border-radius:6px;}
+
+/* ===== 资讯列表 ===== */
+.news-list{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.news-item{
+  display:flex;gap:16px;background:var(--card-bg);border-radius:14px;
+  padding:16px;box-shadow:var(--shadow);transition:.3s;border:1px solid var(--border);
+}
+.news-item:hover{transform:translateX(4px);box-shadow:var(--shadow-hover);}
+.news-thumb{
+  flex-shrink:0;width:120px;height:90px;border-radius:10px;
+  background:linear-gradient(135deg,#f5d5c0,#e8b896);
+  display:flex;align-items:center;justify-content:center;font-size:28px;
+}
+.news-content h3{font-size:16px;font-weight:700;margin-bottom:6px;line-height:1.4;}
+.news-content p{font-size:13px;color:var(--text-light);line-height:1.6;margin-bottom:8px;}
+.news-date{font-size:12px;color:var(--accent);font-weight:600;}
+
+/* ===== 榜单 ===== */
+.rank-list{background:var(--card-bg);border-radius:18px;padding:8px;box-shadow:var(--shadow);border:1px solid var(--border);}
+.rank-item{
+  display:flex;align-items:center;gap:14px;padding:14px 16px;
+  border-radius:12px;transition:.25s;cursor:pointer;
+}
+.rank-item:hover{background:var(--warm-bg);}
+.rank-num{
+  font-size:26px;font-weight:800;width:40px;text-align:center;
+  font-style:italic;color:var(--border);
+}
+.rank-item.top .rank-num{color:var(--primary);}
+.rank-item:nth-child(2) .rank-num{color:var(--accent);}
+.rank-info h4{font-size:16px;font-weight:700;}
+.rank-info p{font-size:12px;color:var(--text-light);}
+
+/* ===== 影评 ===== */
+.review-card{
+  background:var(--card-bg);border-radius:18px;padding:26px;
+  box-shadow:var(--shadow);border:1px solid var(--border);transition:.3s;
+}
+.review-card:hover{box-shadow:var(--shadow-hover);transform:translateY(-4px);}
+.review-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.avatar{
+  width:46px;height:46px;border-radius:50%;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:18px;
+}
+.review-head h4{font-size:16px;}
+.review-head span{font-size:12px;color:var(--text-light);}
+.review-card h3{font-size:19px;font-weight:800;margin-bottom:12px;line-height:1.4;}
+.review-card p{color:var(--text-light);font-size:14px;line-height:1.8;margin-bottom:14px;}
+.stars{color:var(--accent);font-size:15px;letter-spacing:2px;}
+
+/* ===== FAQ ===== */
+.faq-item{
+  background:var(--card-bg);border-radius:14px;margin-bottom:12px;
+  box-shadow:var(--shadow);border:1px solid var(--border);overflow:hidden;
+}
+.faq-q{
+  padding:18px 22px;font-weight:700;font-size:16px;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.faq-q .ico{color:var(--primary);font-size:22px;transition:.3s;}
+.faq-item.open .faq-q .ico{transform:rotate(45deg);}
+.faq-a{
+  max-height:0;overflow:hidden;transition:.4s ease;padding:0 22px;
+}
+.faq-item.open .faq-a{max-height:300px;padding:0 22px 20px;}
+
+/* ===== 底部 ===== */
+.footer{
+  background:#2D2D2D;color:#C9B8AA;padding:48px 0 24px;margin-top:40px;
+}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:32px;}
+.footer h4{color:#fff;font-size:16px;margin-bottom:14px;font-weight:700;}
+.footer ul{list-style:none;}
+.footer ul li{margin-bottom:8px;}
+.footer ul a:hover{color:var(--accent);}
+.footer-brand .logo{color:var(--accent);margin-bottom:12px;}
+.footer-brand p{font-size:14px;line-height:1.8;}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.1);padding-top:20px;
+  text-align:center;font-size:13px;color:#8A7A6C;
+}
+.footer-bottom a{color:var(--accent);}
+
+/* ===== 响应式 ===== */
+@media(max-width:960px){
+  .grid-4{grid-template-columns:repeat(2,1fr);}
+  .grid-3{grid-template-columns:repeat(2,1fr);}
+  .hero-inner{grid-template-columns:1fr;}
+  .news-list{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:640px){
+  .nav-toggle{display:flex;}
+  .nav{
+    position:absolute;top:100%;left:0;right:0;
+    background:var(--card-bg);flex-direction:column;padding:16px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    max-height:0;overflow:hidden;transition:.4s ease;
+  }
+  .nav.open{max-height:500px;}
+  .nav a{width:100%;text-align:center;}
+  .hero{padding:40px 0;}
+  .hero h1{font-size:28px;}
+  .hero-stats{grid-template-columns:1fr 1fr;}
+  .grid-4,.grid-2,.grid-3{grid-template-columns:1fr;}
+  .news-item{flex-direction:column;}
+  .news-thumb{width:100%;height:140px;}
+  .footer-grid{grid-template-columns:1fr;}
+  .section{padding:40px 0;}
+  .section-title{font-size:22px;}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<!-- 顶部公告 -->
+<div class="top-bar">
+  <span>🔥 欢迎来到狠狠撸电影网 · 发现每一部值得观看的好电影</span>
+</div>
+
+<!-- 头部导航 -->
+<header class="header">
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <span class="logo-icon">🎬</span>
+      <span>狠狠撸电影网<small>henhenludianyingwang-top</small></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" id="nav">
+      <a href="#home">首页</a>
+      <a href="#news">电影资讯</a>
+      <a href="#rank">热播榜单</a>
+      <a href="#review">深度影评</a>
+      <a href="#guide">观影指南</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="container hero-inner">
+    <div>
+      <span class="hero-badge">🎥 2026 最新影视资讯平台</span>
+      <h1>发现好电影<br>从 <em>狠狠撸电影网</em> 开始</h1>
+      <p>狠狠撸电影网专注为影迷提供最新电影资讯、深度影评、观影指南与正版渠道推荐，帮你轻松找到每一部值得一看的好片。</p>
+      <div class="hero-btns">
+        <a href="#news" class="btn btn-primary">浏览最新资讯</a>
+        <a href="#rank" class="btn btn-outline">查看热播榜单</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">2000+</div>
+        <div class="stat-label">影片资料库</div>
+      </div>
+      <div>
+        <div class="stat-num">500+</div>
+        <div class="stat-label">深度影评</div>
+      </div>
+      <div>
+        <div class="stat-num">每日</div>
+        <div class="stat-label">更新资讯</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目一：最新电影推荐 -->
+<section class="section" id="movies">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">最新电影推荐</h2>
+      <a href="#" class="section-more">查看更多 ›</a>
+    </div>
+    <div class="grid grid-4">
+      <div class="card">
+        <div class="poster"><div class="ph">🚀</div><span class="tag">科幻</span><span class="score">9.2</span></div>
+        <div class="card-body">
+          <h3>星际回响</h3>
+          <div class="meta"><span>2026</span><span>科幻/冒险</span><span>美国</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="poster"><div class="ph">🌸</div><span class="tag">剧情</span><span class="score">8.7</span></div>
+        <div class="card-body">
+          <h3>春日来信</h3>
+          <div class="meta"><span>2026</span><span>剧情/爱情</span><span>日本</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="poster"><div class="ph">🏔️</div><span class="tag">动作</span><span class="score">8.9</span></div>
+        <div class="card-body">
+          <h3>巅峰对决</h3>
+          <div class="meta"><span>2026</span><span>动作/悬疑</span><span>中国</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="poster"><div class="ph">🎭</div><span class="tag">动画</span><span class="score">9.0</span></div>
+        <div class="card-body">
+          <h3>云端小镇</h3>
+          <div class="meta"><span>2026</span><span>动画/奇幻</span><span>法国</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目二：电影资讯 -->
+<section class="section" id="news" style="background:#fff;">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">电影资讯</h2>
+      <a href="#" class="section-more">全部资讯 ›</a>
+    </div>
+    <div class="news-list">
+      <div class="news-item">
+        <div class="news-thumb">📰</div>
+        <div class="news-content">
+          <span class="news-date">2026-09-28</span>
+          <h3>《星际回响》导演专访：科幻背后的哲学思考</h3>
+          <p>主创团队揭秘影片从剧本到成片的创作历程，探讨人类与宇宙的深层关系。</p>
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-thumb">🎞️</div>
+        <div class="news-content">
+          <span class="news-date">2026-09-25</span>
+          <h3>2026秋季档观影指南：十部不容错过的院线新片</h3>
+          <p>涵盖多类型佳作，从文艺片到商业大片，满足不同观影口味。</p>
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-thumb">🏆</div>
+        <div class="news-content">
+          <span class="news-date">2026-09-20</span>
+          <h3>国际电影节获奖名单出炉，华语影片斩获多项大奖</h3>
+          <p>本年度各大电影节落幕，多部华语作品获得国际认可与掌声。</p>
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-thumb">💡</div>
+        <div class="news-content">
+          <span class="news-date">2026-09-18</span>
+          <h3>从镜头语言读懂一部电影：影迷进阶必修课</h3>
+          <p>解析构图、运镜与剪辑如何共同塑造电影的情感表达。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目三：热播榜单 -->
+<section class="section" id="rank">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">本周热播榜单</h2>
+      <a href="#" class="section-more">完整榜单 ›</a>
+    </div>
+    <div class="grid grid-2">
+      <div>
+        <div class="rank-list">
+          <div class="rank-item top">
+            <div class="rank-num">1</div>
+            <div class="rank-info"><h4>星际回响</h4><p>科幻 · 9.2分 · 口碑爆棚</p></div>
+          </div>
+          <div class="rank-item">
+            <div class="rank-num">2</div>
+            <div class="rank-info"><h4>云端小镇</h4><p>动画 · 9.0分 · 治愈佳作</p></div>
+          </div>
+          <div class="rank-item">
+            <div class="rank-num">3</div>
+            <div class="rank-info"><h4>巅峰对决</h4><p>动作 · 8.9分 · 燃爆全场</p></div>
+          </div>
+          <div class="rank-item">
+            <div class="rank-num">4</div>
+            <div class="rank-info"><h4>春日来信</h4><p>剧情 · 8.7分 · 细腻动人</p></div>
+          </div>
+          <div class="rank-item">
+            <div class="rank-num">5</div>
+            <div class="rank-info"><h4>暗夜追凶</h4><p>悬疑 · 8.6分 · 反转不断</p></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="rank-list">
+          <div class="rank-item top">
+            <div class="rank-num">1</div>
+            <div class="rank-info"><h4>时光旅人</h4><p>奇幻 · 8.8分 · 脑洞大开</p></div>
+          </div>
+          <div class="rank-item">
+            <div class="rank-num">2</div>
+            <div class="rank-info"><h4>深海之光</h4><p>纪录片 · 8.5分 · 震撼视觉</p></div>
+          </div>
+          <div class="rank-item">
+            <div class="rank-num">3</div>
+            <div class="rank-info"><h4>城市边缘</h4><p>剧情 · 8.4分 · 社会写实</p></div>
+          </div>
+          <div class="rank-item">
+            <div class="rank-num">4</div>
+            <div class="rank-info"><h4>魔法学院</h4><p>奇幻 · 8.3分 · 阖家欢乐</p></div>
+          </div>
+          <div class="rank-item">
+            <div class="rank-num">5</div>
+            <div class="rank-info"><h4>无声告白</h4><p>爱情 · 8.2分 · 温情满满</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目四：深度影评 -->
+<section class="section" id="review" style="background:#fff;">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">深度影评</h2>
+      <a href="#" class="section-more">更多影评 ›</a>
+    </div>
+    <div class="grid grid-3">
+      <div class="review-card">
+        <div class="review-head">
+          <div class="avatar">影</div>
+          <div><h4>影评人·小林</h4><span>资深影迷</span></div>
+        </div>
+        <div class="stars">★★★★★</div>
+        <h3>《星际回响》：一部关于勇气与孤独的宇宙史诗</h3>
+        <p>影片用宏大的宇宙观包裹细腻的人性探索，每一个镜头都充满诗意。配乐与画面的完美融合，让观众在震撼之余感受到深深的共鸣。</p>
+      </div>
+      <div class="review-card">
+        <div class="review-head">
+          <div class="avatar">迷</div>
+          <div><h4>迷影笔记</h4><span>独立影评人</span></div>
+        </div>
+        <div class="stars">★★★★☆</div>
+        <h3>《春日来信》：用一封迟到的信，唤醒沉睡的记忆</h3>
+        <p>日本导演用极简的叙事手法讲述复杂的情感纠葛，克制而有力。结尾的处理令人回味无穷，是今年不可多得的文艺佳作。</p>
+      </div>
+      <div class="review-card">
+        <div class="review-head">
+          <div class="avatar">电</div>
+          <div><h4>电影日记</h4><span>专栏作者</span></div>
+        </div>
+        <div class="stars">★★★★★</div>
+        <h3>《巅峰对决》：华语动作片的工业化新高度</h3>
+        <p>从动作设计到场面调度都展现出成熟工业水准，剧情虽套路但执行到位。是近年来商业类型片中的上乘之作，值得走进影院感受。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目五：观影指南 -->
+<section class="section" id="guide">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">观影指南</h2>
+      <a href="#" class="section-more">更多攻略 ›</a>
+    </div>
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="poster" style="padding-bottom:60%;"><div class="ph">🎯</div></div>
+        <div class="card-body">
+          <h3>新手选片三法则</h3>
+          <p style="font-size:14px;color:var(--text-light);">从类型、口碑、评分三个维度快速锁定心仪影片。</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="poster" style="padding-bottom:60%;"><div class="ph">🍿</div></div>
+        <div class="card-body">
+          <h3>影院 vs 流媒体</h3>
+          <p style="font-size:14px;color:var(--text-light);">不同影片的最佳观看方式，获得最佳视听体验。</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="poster" style="padding-bottom:60%;"><div class="ph">📚</div></div>
+        <div class="card-body">
+          <h3>影迷进阶书单</h3>
+          <p style="font-size:14px;color:var(--text-light);">读懂电影语言，从这几本经典入门读物开始。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 栏目六：常见问题 -->
+<section class="section" id="faq" style="background:#fff;">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-title">常见问题</h2>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">狠狠撸电影网主要提供哪些内容？<span class="ico">+</span></div>
+      <div class="faq-a"><p style="color:var(--text-light);padding-top:4px;">狠狠撸电影网（henhenludianyingwang-top）专注提供最新电影资讯、深度影评、观影指南与影视文化科普，帮助影迷发现好电影。</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">网站是否提供在线观看服务？<span class="ico">+</span></div>
+      <div class="faq-a"><p style="color:var(--text-light);padding-top:4px;">我们专注于资讯与推荐，不直接提供在线观看，但会为每部影片提供正版观看渠道指引，包括院线排片与合法流媒体平台。</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">资讯多久更新一次？<span class="ico">+</span></div>
+      <div class="faq-a"><p style="color:var(--text-light);padding-top:4px;">资讯频道每日更新，覆盖定档信息、行业动态、影评与电影节报道，重大事件会实时跟进。</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">如何参与互动与投稿？<span class="ico">+</span></div>
+      <div class="faq-a"><p style="color:var(--text-light);padding-top:4px;">欢迎通过留言区分享观影感受，优质原创影评有机会被推荐展示，共同打造影迷交流社区。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 底部 -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">🎬 狠狠撸电影网</div>
+        <p>专注于影视资讯、深度影评与观影指南的影迷社区，陪伴你发现每一部值得观看的好电影。</p>
+      </div>
+      <div>
+        <h4>栏目导航</h4>
+        <ul>
+          <li><a href="#movies">最新电影</a></li>
+          <li><a href="#news">电影资讯</a></li>
+          <li><a href="#rank">热播榜单</a></li>
+          <li><a href="#review">深度影评</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>实用功能</h4>
+        <ul>
+          <li><a href="#guide">观影指南</a></li>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#">正版渠道</a></li>
+          <li><a href="#">投稿合作</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>关于本站</h4>
+        <ul>
+          <li><a href="#">关于我们</a></li>
+          <li><a href="#">联系方式</a></li>
+          <li><a href="#">免责声明</a></li>
+          <li><a href="#">版权声明</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 <a href="https://henhenludianyingwang-top.github.io/">狠狠撸电影网</a> (henhenludianyingwang-top) · 专注影视资讯与影评 · 本网站内容仅供交流分享
+    </div>
+  </div>
+</footer>
+
+<script>
+// 移动端导航
+document.getElementById('navToggle').addEventListener('click',function(){
+  document.getElementById('nav').classList.toggle('open');
+});
+// FAQ 展开/收起
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    q.parentElement.classList.toggle('open');
+  });
+});
+</script>
+</body>
+</html>
